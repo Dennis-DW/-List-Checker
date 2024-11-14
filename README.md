@@ -1,4 +1,4 @@
-# Graduation List Checker Documentation
+# Graduation List Checker 
 
 ## Overview
 
