@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Lora', sans-serif;
+  overflow: hidden; 
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+form {
+  background: #f8f4e5;
+  padding: 30px 50px; /* Reduced padding */
+  border: 2px solid rgba(0,0,0,1);
+  box-shadow: 15px 15px 1px #ffa580, 15px 15px 1px 2px rgba(0,0,0,1);
+  min-width: 20rem; /* Reduced minimum width */
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: georgia, serif;
+  color: #3B200F;
+  font-size: 32px; 
+  font-weight: 600;
+  line-height: 125%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1rem; 
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+  font-size: 1rem; 
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  padding: .5rem; /* Reduced padding */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: .25rem;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  border-color: #9998d5;
+  outline: none;
+}
+
+input,
+span,
+label {
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+  margin: 10px 0; 
+  padding: 5px;
+  border: none;
+  font-size: 18px; 
+}
+
+input:focus {
+  outline: 0;
+}
+
+.button-33 {
+  margin-top: 1%; 
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 14px; 
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+#result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px; 
+  font-family: georgia, serif;
+  color: #bd957c;
+  font-size: 32px; 
+  font-weight: 600;
+  line-height: 125%;
+  text-decoration: none;
+}
+
+.confetti-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+.confetti-container.active {
+  display: flex;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.confetti .square {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--bg);
+  transform: rotate(-140deg);
+}
+
+.confetti .rectangle {
+  width: 1rem;
+  height: 0.5rem;
+  background-color: var(--bg);
+}
+
+.confetti .hexagram {
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 1rem solid var(--bg);
+  position: relative;
+}
+
+.confetti .hexagram:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 1rem solid var(--bg);
+  position: absolute;
+  top: 0.33rem;
+  left: -0.5rem;
+}
+
+.confetti .pentagram {
+  width: 0rem;
+  height: 0rem;
+  display: block;
+  margin: 0.5rem 0;
+  border-right: 1rem solid transparent;
+  border-bottom: 0.7rem solid var(--bg);
+  border-left: 1rem solid transparent;
+  transform: rotate(35deg);
+  position: relative;
+}
+.confetti .pentagram:before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-bottom: 0.8rem solid var(--bg);
+  border-left: 0.3rem solid transparent;
+  border-right: 0.3rem solid transparent;
+  transform: rotate(-35deg);
+  position: absolute;
+  top: -0.45rem;
+  left: -0.65rem;
+}
+.confetti .pentagram:after {
+  content: "";
+  width: 0rem;
+  height: 0rem;
+  display: block;
+  border-right: 1rem solid transparent;
+  border-bottom: 0.7rem solid var(--bg);
+  border-left: 1rem solid transparent;
+  transform: rotate(-70deg);
+  position: absolute;
+  top: 0.03rem;
+  left: -1.05rem;
+}
+
+.confetti .dodecagram {
+  background: var(--bg);
+  width: 0.8rem;
+  height: 0.8rem;
+  position: relative;
+}
+
+.confetti .dodecagram:before {
+  content: "";
+  height: 0.8rem;
+  width: 0.8rem;
+  background: var(--bg);
+  transform: rotate(30deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.confetti .dodecagram:after {
+  content: "";
+  height: 0.8rem;
+  width: 0.8rem;
+  background: var(--bg);
+  transform: rotate(60deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.confetti .wavy-line {
+  position: relative;
+}
+.confetti .wavy-line::after,
+.confetti .wavy-line::before {
+  content: "";
+  height: 1rem;
+  width: 8rem;
+  background-size: 2rem 1rem;
+  position: absolute;
+  left: -9rem;
+  transform: rotate(90deg);
+}
+
+.confetti .wavy-line::before {
+  background-image: linear-gradient(
+    45deg,
+    transparent,
+    transparent 50%,
+    var(--bg) 50%,
+    transparent 60%
+  );
+  top: 1rem;
+}
+.confetti .wavy-line::after {
+  background-image: linear-gradient(
+    -45deg,
+    transparent,
+    transparent 50%,
+    var(--bg) 50%,
+    transparent 60%
+  );
+}
+
+.confetti i {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0.2rem;
+  animation-name: confetti;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: calc(70s / var(--speed));
+}
+
+.confetti i:nth-child(even) {
+  transform: rotate(90deg);
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  input,
+  textarea {
+    font-size: 16px; 
+  }
+
+  .button-33 {
+    font-size: 12px; 
+    padding: 5px 10px; 
+  }
+
+  #result {
+    font-size: 24px; 
+  }
+}
