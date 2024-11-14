@@ -39,6 +39,9 @@ async function checkGraduationList() {
 
     if (response.data.includes('Congratulations')) {
       confettiContainer.classList.add('active');
+      setTimeout(() => {
+        confettiContainer.classList.remove('active');
+      }, 8000); 
     } else {
       confettiContainer.classList.remove('active');
     }
