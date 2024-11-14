@@ -4,6 +4,7 @@ const MerkleTree = require('../utils/MerkleTree');
 const graduationList = require('../utils/graduationList.json');
 
 const app = express();
+const port = 1225;
 
 // Set up static file serving
 app.use(express.static('public'));
@@ -37,7 +38,7 @@ app.post('/getProof', (req, res) => {
   const index = graduationList.indexOf(name);
 
   if (index === -1) {
-    res.status(404).send('You are not on the list :(');
+    res.status(404).send('Your are not on the list :(');
     return;
   }
 
@@ -45,4 +46,8 @@ app.post('/getProof', (req, res) => {
   res.json(proof);
 });
 
-module.exports = app;
+// Start the server
+app.listen(port, () => {
+  console.log(`Listening on port ${port}! Open http://localhost:${port} in your browser.`);
+});
+
